@@ -4,7 +4,8 @@ function Set-OutputVariable {
         [string]$Value
     )
 
-    Write-Host "::set-output name=$Name::$Value"
+    # Write the output to $GITHUB_OUTPUT file
+    Write-Host "$Name=$Value" >> $env:GITHUB_ENV
 }
 
 function Set-Failed {
